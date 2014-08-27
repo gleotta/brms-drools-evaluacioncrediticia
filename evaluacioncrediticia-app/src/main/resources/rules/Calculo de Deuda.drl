@@ -1,0 +1,18 @@
+package com.redhat
+
+import com.redhat.evaluacioncrediticia.Prospecto
+import com.redhat.evaluacioncrediticia.CentralRiesgo
+
+rule "Calculo de Deuda"
+	no-loop true
+	//ruleflow-group "calculo-deuda"
+when
+	
+	$prospecto: Prospecto()
+    $cr: CentralRiesgo (prospecto == $prospecto)
+then
+System.out.println("Se ejecuta Calculo de Deuda");
+$prospecto.setTotalDeuda($cr.getImporteDeuda()+$prospecto.getTotalDeuda());
+update($prospecto);
+retract($cr);
+end

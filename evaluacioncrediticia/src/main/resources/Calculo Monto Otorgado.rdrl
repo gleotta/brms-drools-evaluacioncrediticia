@@ -1,0 +1,14 @@
+import java.lang.Number;
+import com.redhat.evaluacioncrediticia.Oferta;
+import com.redhat.evaluacioncrediticia.Prospecto;
+
+rule "Calculo Monto Otorgado"
+	dialect "mvel"
+	no-loop true
+	ruleflow-group "monto_otorgado"
+	when
+		$oferta : Oferta( $montoMaximo : montoMaximo < 0 , $prospecto : prospecto != null , $maxEndeudamiento : prospecto.maxEndeudamiento > 0 , $producto : producto != null , $limite : producto.limite >= 0 )
+	then
+		$oferta.setMontoMaximo( Math.min( $producto.getLimite() , $prospecto.getMaxEndeudamiento() ) );
+		update( $oferta );
+end
