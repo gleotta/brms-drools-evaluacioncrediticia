@@ -16,11 +16,12 @@ Descarga de kmodule en BRMS
 
 Descarga de aplicación consumidora
 -----------------------------------
-1. Dentro de directrio [USER_HOME]/git clonar repositorio: 
+1. Dentro de directorio [USER_HOME]/git clonar repositorio: 
 >git clone https://github.com/gleotta/brms-drools-evaluacioncrediticia
 
 2. Realizar build de la aplicación con maven:
->cd [USER_HOME]\git\brms-drools-evaluacioncrediticia\evaluacioncrediticia-app
+>cd [USER_HOME]/git/brms-drools-evaluacioncrediticia/evaluacioncrediticia-app
+
 >mvn clean install
 
 3. Ejecutar aplicación con jar generado:
