@@ -19,15 +19,16 @@ Descarga de aplicación consumidora
 1. Dentro de directorio [USER_HOME]/git clonar repositorio: 
 >git clone https://github.com/gleotta/brms-drools-evaluacioncrediticia
 
-2. Realizar build de la aplicación con maven:
+2. Ingresar a directoro de repositorio:
 >cd [USER_HOME]/git/brms-drools-evaluacioncrediticia/evaluacioncrediticia-app
 
+3. Realizar build de la aplicación con maven:
 >mvn clean install
 
-3. Ejecutar aplicación con jar generado:
+4. Ejecutar aplicación con jar generado:
 >java -jar target/evaluacioncreditica-app-full.jar
 
-4. Verificar correcta ejecución:
+5. Verificar correcta ejecución:
 
 ```
 Productos:
