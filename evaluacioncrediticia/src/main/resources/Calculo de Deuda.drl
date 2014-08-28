@@ -1,0 +1,18 @@
+package com.redhat.evaluacioncrediticia
+
+import com.redhat.evaluacioncrediticia.Prospecto
+import com.redhat.evaluacioncrediticia.CentralRiesgo
+
+rule "Calculo de Deuda"
+	no-loop true
+	ruleflow-group "calculo_deuda"
+	dialect "mvel"
+when
+	$prospecto:Prospecto()
+	$cr:CentralRiesgo(prospecto == $prospecto)
+then
+	$prospecto.setTotalDeuda($prospecto.getTotalDeuda() + $cr.getImporteDeuda());
+	update($prospecto);
+	retract($cr);
+end
+ 
